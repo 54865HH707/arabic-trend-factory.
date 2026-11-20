@@ -1,1 +1,4 @@
-requests\nPillow\narabic-reshaper\npython-bidi\n
+requests
+Pillow
+arabic-reshaper
+python-bidi
