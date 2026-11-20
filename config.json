@@ -1,7 +1,9 @@
 {
   "country_code": "SA",
-  "language": "ar",
-  "video_seconds": 35,
+  "min_seconds": 60,
+  "max_seconds": 90,
   "width": 1080,
-  "height": 1920
+  "height": 1920,
+  "voice": "ar-SA-HamedNeural",
+  "allow_web_images": true
 }
