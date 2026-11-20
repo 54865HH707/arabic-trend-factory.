@@ -1,26 +1,30 @@
-name: Daily Arabic Trend Factory
+name: Arabic Trend Factory Daily
 on:
   workflow_dispatch:
   schedule:
-    - cron: '15 5 * * *'
+    - cron: "15 5 * * *"
+permissions:
+  contents: read
 jobs:
-  build:
+  build-video:
     runs-on: ubuntu-latest
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: "3.11"
       - name: Install FFmpeg and fonts
         run: |
           sudo apt-get update
-          sudo apt-get install -y ffmpeg fonts-dejavu-core
-      - name: Install Python packages
+          sudo apt-get install -y ffmpeg fonts-noto-core fonts-dejavu-core
+      - name: Install packages
         run: pip install -r requirements.txt
-      - name: Fetch real trend and generate video
+      - name: Generate video
         run: python app.py
       - uses: actions/upload-artifact@v4
         with:
-          name: daily-trend-output
+          name: arabic-daily-video
           path: output/
+          if-no-files-found: error
           retention-days: 7
