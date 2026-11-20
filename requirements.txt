@@ -1,2 +1,4 @@
 Pillow>=10.0.0
-edge-tts>=6.1.12
+edge-tts>=6.1.9
+arabic-reshaper>=3.0.0
+python-bidi>=0.4.2
